@@ -1,4 +1,4 @@
-# job_applications
+# Job applications
 ## About
 This is a Drupal 9 module. It allows users to apply for a job on the /job/apply page. Users with the "View job applications" permissions can view all job applications job/overview
 
