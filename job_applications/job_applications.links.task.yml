@@ -1,0 +1,7 @@
+entity.jobs.delete_form:
+  title: 'Delete'
+  route_name: entity.jobs.delete_form
+  base_route: entity.jobs.canonical
+  weight: 10
+
+

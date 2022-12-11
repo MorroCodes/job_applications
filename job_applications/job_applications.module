@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Provides a job applications entity type.
+ */
+
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_theme().
+ */
+function job_applications_theme() {
+  return [
+    'jobs' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for job applications templates.
+ *
+ * Default template: jobs.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the job applications information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_jobs(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+    $job = $variables['elements']['#jobs'];
+    $variables['job'] = $job;
+    //add cv file to canonical page, pre-render link
+    $file = $job->get('cv_file')->referencedEntities()[0];
+    $variables['cv_file'] = new FormattableMarkup('<a href=":link" target="_blank">@file</a>', [':link' => $file->createFileUrl(), '@file' => $file->getFilename()]);
+  }
+}
+

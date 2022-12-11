@@ -1,0 +1,3 @@
+view job applications:
+  title: 'View job applications'
+  restrict access: true

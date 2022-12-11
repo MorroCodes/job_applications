@@ -1,0 +1,7 @@
+name: Job applications
+type: module
+description: Allows users to apply for jobs. Private file system is required to be set for security reasons.
+package: Mauro
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:file

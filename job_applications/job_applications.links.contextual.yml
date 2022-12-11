@@ -1,0 +1,5 @@
+entity.jobs.delete_form:
+  route_name: entity.jobs.delete_form
+  group: jobs
+  title: Delete
+  weight: 10
